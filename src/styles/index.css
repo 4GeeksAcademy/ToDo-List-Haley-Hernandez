@@ -1,94 +1,80 @@
 body {
-  background: #f5f5f5;
+  background-color: #f5f5f5;
   min-height: 100vh;
   display: flex;
   justify-content: center;
-  align-items: flex-start;
-  padding-top: 50px;
+  align-items: center;
+  margin: 0;
+  font-family: Arial, sans-serif;
 }
 
-
-.todo-card {
-  background: #ffffff;
-  width: 400px;
+.todo-container {
+  background-color: white;
   padding: 20px;
-  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  border: 1px solid #ddd;
   border-radius: 5px;
-  position: relative;
+  width: 300px;
 }
 
-
-.todo-title {
-  color: #d3a8b5;
-  font-size: 3rem;
-  font-weight: bold;
+.todo-container h1 {
+  color: #7e7e7e;
+  font-size: 48px;
   text-align: center;
   margin-bottom: 20px;
-  position: absolute;
-  top: -30px;
-  left: 50%;
-  transform: translateX(-50%);
 }
 
-
-.todo-input {
-  color: #999;
-  font-size: 1rem;
-  border: none;
-  border-bottom: 1px solid #eee;
-  background: none;
-  width: 100%;
-  padding: 5px 0;
+.input-section {
   margin-bottom: 20px;
 }
 
-.todo-input::placeholder {
-  color: #999;
+.input-section input {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  margin-bottom: 10px;
 }
 
+.input-section button {
+  width: 100%;
+  padding: 10px;
+  background-color: #7ca6ff;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
 
 .todo-list {
   list-style: none;
   padding: 0;
-  margin: 0;
 }
 
-.todo-item {
-  color: #666;
-  font-size: 1rem;
-  padding: 10px 0;
+.todo-list li {
+  padding: 10px;
   border-bottom: 1px solid #eee;
   display: flex;
   justify-content: space-between;
   align-items: center;
 }
 
-.todo-item:last-child {
-  border-bottom: none;
+.todo-list li.no-tasks {
+  color: #888;
+  text-align: center;
+  padding: 10px;
 }
 
-
-.todo-counter {
-  color: #999;
-  font-size: 0.8rem;
-  text-align: left;
-  margin-top: 20px;
-}
-
-
-.btn-primary {
-  display: none;
-}
-
-
-.btn-danger {
+.todo-list li .delete-btn {
   background: none;
   border: none;
   color: #ff4444;
-  font-size: 1rem;
-  padding: 0;
+  cursor: pointer;
+  font-size: 16px;
 }
 
-.btn-danger:hover {
-  color: #cc0000;
+.todo-list li.items-left {
+  color: #888;
+  text-align: center;
+  padding: 10px;
+  border-top: 1px solid #eee;
 }

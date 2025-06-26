@@ -22,46 +22,43 @@ const Home = () => {
 		if (e.key === "Enter") addTask();
 	};
 
-
+	// here i want the user to be able to delete the task
 	const deleteTask = (id) => setTasks(tasks.filter((task) => task.id !== id));
 
 	return (
-		<div className="text-center mt-5">
-			<h1>To-Do List</h1>
-			<div className="container">
-				{ }
-				<div className="input-group mb-3">
-					<input
-						type="text"
-						className="form-control"
-						placeholder="Add a new task..."
-						value={inputValue}
-						onChange={handleInputChange}
-						onKeyPress={handleKeyPress}
-					/>
-					<button className="btn btn-primary" onClick={addTask}>
-						Add
-					</button>
-				</div>
-				{ }
-				<ul className="list-group">
-					{tasks.length === 0 ? (
-						<li className="list-group-item">No tasks, add one!</li>
-					) : (
-						tasks.map((task) => (
-							<li
-								key={task.id}
-								className="list-group-item d-flex justify-content-between align-items-center"
-							>
-								{task.text}
-								<button className="btn btn-danger btn-sm" onClick={() => deleteTask(task.id)}>
-									🗑️
-								</button>
-							</li>
-						))
-					)}
-				</ul>
+		<div className="todo-container">
+			<h1>todos</h1>
+			<div className="input-section">
+				<input
+					type="text"
+					placeholder="What needs to be done?"
+					value={inputValue}
+					onChange={handleInputChange}
+					onKeyPress={handleKeyPress}
+				/>
+				<button onClick={addTask}>
+					Add
+				</button>
 			</div>
+			<ul className="todo-list">
+				{tasks.length === 0 ? (
+					<li className="no-tasks">No tasks, add one!</li>
+				) : (
+					tasks.map((task) => (
+						<li key={task.id}>
+							{task.text}
+							<button className="delete-btn" onClick={() => deleteTask(task.id)}>
+								🗑️
+							</button>
+						</li>
+					))
+				)}
+				{tasks.length > 0 && (
+					<li className="items-left">
+						{tasks.length} item{tasks.length !== 1 ? 's' : ''} left
+					</li>
+				)}
+			</ul>
 		</div>
 	);
 };
